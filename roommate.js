@@ -43,7 +43,7 @@ const emailRoommates = (g) => {
 
   if (roommatesCount.length > 0) {
     emailGastos.push(g);
-    gastosRoommates(emailGastos);
+    tableRoomys(emailGastos);
     fs.writeFileSync('gastos.json', JSON.stringify(emailJson));
     console.log(g.roommate, g.descripcion, g.monto, g.correo.split(','));
     send(g.roommate, g.descripcion, g.monto, g.correo.split(','))
@@ -60,7 +60,7 @@ const emailRoommates = (g) => {
   }
 };
 
-const gastosRoommates = (data) => {
+const tableRoomys = (data) => {
   const roommateJSON = JSON.parse(fs.readFileSync('roommates.json', 'UTF8'));
   let roommates = roommateJSON.roommates;
 
