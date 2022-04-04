@@ -116,7 +116,6 @@ const requestListener = (req, res) => {
       //Volvemoa a parear a obj json el objeto gastos
       fs.writeFileSync('gastos.json', JSON.stringify({ gastos }));
       res.statusCode = 200;
-
       console.log(`Se ha editado el gasto de "${roomy}"`);
       res.end();
     });
@@ -128,9 +127,7 @@ const requestListener = (req, res) => {
 
     const removeJSON = JSON.parse(fs.readFileSync('gastos.json', 'utf8'));
     const gastos = removeJSON.gastos.filter((gasto) => gasto.id !== id);
-
     fs.writeFileSync('gastos.json', JSON.stringify({ gastos }));
-
     res.statusCode = 200;
     console.log('Se ha eliminado un gasto');
     res.end();

@@ -48,15 +48,15 @@ const emailRoommates = (g) => {
     console.log(g.roommate, g.descripcion, g.monto, g.correo.split(','));
     send(g.roommate, g.descripcion, g.monto, g.correo.split(','))
       .then(() => {
-        console.log('Envío de correo exitoso');
+        console.log('Se ha enviado con exito el correo');
       })
       .catch((error) => {
         res.statusCode = 500;
         res.end();
-        console.log('Error error en el envio del correo', error);
+        console.log('Ups.! Ha occurrido una falla en enviar el correo', error);
       });
   } else {
-    console.log('No se han agregado roommates');
+    console.log('Ha occurido una falla en agregar el roommate');
   }
 };
 
