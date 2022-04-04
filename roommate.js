@@ -4,7 +4,7 @@ const { send } = require('./mailer');
 const { v4: uuidv4 } = require('uuid');
 
 //CREANDDO NUEVO ROOMMATE
-const newRoommate = async (debe, recibe) => {
+const newRoommate = async () => {
   try {
     //Obteniendo el modelo de datos, un objeto con un arreglo de objetos
     const { data } = await axios.get('https://randomuser.me/api');
@@ -45,7 +45,6 @@ const emailRoommates = (g) => {
     emailGastos.push(g);
     gastosRoommates(emailGastos);
     fs.writeFileSync('gastos.json', JSON.stringify(emailJson));
-    // 06 Enviar un correo electronico a todos los roommates cuando se registre un nuevo cambio
     console.log(g.roommate, g.descripcion, g.monto, g.correo.split(','));
     send(g.roommate, g.descripcion, g.monto, g.correo.split(','))
       .then(() => {
