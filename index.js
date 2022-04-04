@@ -85,12 +85,7 @@ const requestListener = (req, res) => {
         monto: body.monto,
         fecha: today,
       };
-      //Para poder poblar gastos.json se parsea para trabajarlo como objeto js
-      // const newJSON = JSON.parse(fs.readFileSync('gastos.json', 'utf8'));
-      // //Poblamos el gastos.json con los datos del obje de form(el formulario)
-      // newJSON.gastos.push(form);
-      //Y volvemos a parsear pero a Obj JSON
-      // fs.writeFileSync('gastos.json', JSON.stringify(newJSON));
+
       emailRoommates(form);
       res.statusCode = 200;
       console.log(`Se ha ingresado el gasto de "${form.roommate}"`);
