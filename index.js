@@ -4,7 +4,12 @@ const { v4: uuidv4 } = require('uuid');
 const url = require('url');
 const PORT = 3000;
 const host = 'localhost';
-let today = new Date();
+let date = new Date();
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let today = ` ${day}-${month}-${year}`;
+
 const { newRoommate, saveRoommate, emailRoommates } = require('./roommate');
 
 const requestListener = (req, res) => {

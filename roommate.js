@@ -18,6 +18,7 @@ const newRoommate = async () => {
       debe: 0,
       recibe: 0,
       total: 0,
+      id: uuidv4().slice(30),
     };
     return roommates;
   } catch (e) {
@@ -51,7 +52,6 @@ const emailRoommates = (g) => {
         console.log('Se ha enviado con exito el correo');
       })
       .catch((error) => {
-        res.statusCode = 500;
         res.end();
         console.log('Ups.! Ha occurrido una falla en enviar el correo', error);
       });
